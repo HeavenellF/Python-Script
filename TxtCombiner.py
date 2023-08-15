@@ -17,7 +17,7 @@ def main():
     lines1 = read_file(file_path1)
     lines2 = read_file(file_path2)
 
-    unique_lines = set(lines1 + lines2)
+    unique_lines = set(lines1) | set(lines2)
 
     write_file(output_path, unique_lines)
 
