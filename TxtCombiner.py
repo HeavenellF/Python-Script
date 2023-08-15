@@ -1,6 +1,5 @@
-
-file_path1 = 'misc/greeting-1.txt'
-file_path2 = 'misc/greeting-2.txt'
+file_path1 = 'misc/greeting1.txt'
+file_path2 = 'misc/greeting2.txt'
 
 output_path = 'misc/greetingCombine.txt'
 
@@ -17,7 +16,8 @@ def main():
     lines1 = read_file(file_path1)
     lines2 = read_file(file_path2)
 
-    unique_lines = set(lines1) | set(lines2)
+    combined_lines = lines1 + lines2
+    unique_lines = set(combined_lines)
 
     write_file(output_path, unique_lines)
 
