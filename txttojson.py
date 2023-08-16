@@ -1,6 +1,6 @@
 import json
 
-with open('misc/greeting.txt', 'r') as greeting_in_txt:
+with open('misc/greetingCombine.txt', 'r') as greeting_in_txt:
     lines = greeting_in_txt.readlines()
 
 greeting_data = {}
