@@ -25,20 +25,24 @@ for subDir in [subDir_Doc, subDir_Img, subDir_Txt]:
         print(f"create {subDir} in {dir_path}")
     else :
         print(f"{subDir} in {dir_path} already exists")
-i = 1
+
+
 for item in os.listdir(dir_path):
     file = os.path.join(dir_path, item)
     if os.path.isfile(file):
         file_extension = os.path.splitext(item)[1].lower()
         if file_extension in imgFormat:
-            print("is Image")
+            dir_destination = os.path.join(dir_path, subDir_Img)
+
         elif file_extension in txtFormat:
-            print("is Text")
+            dir_destination = os.path.join(dir_path, subDir_Txt)
+
         elif file_extension in docFormat:
-            print("is Document")
+            dir_destination = os.path.join(dir_path, subDir_Doc)
+
         else:
-            print("dont know")
+            dir_destination = None
+        
+        if dir_destination :
+            shutil.move(file, dir_destination)
 
-
-
-print("Script Complete!")
