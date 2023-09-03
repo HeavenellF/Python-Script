@@ -29,8 +29,15 @@ i = 1
 for item in os.listdir(dir_path):
     file = os.path.join(dir_path, item)
     if os.path.isfile(file):
-        print(i)
-        i += 1
+        file_extension = os.path.splitext(item)[1].lower()
+        if file_extension in imgFormat:
+            print("is Image")
+        elif file_extension in txtFormat:
+            print("is Text")
+        elif file_extension in docFormat:
+            print("is Document")
+        else:
+            print("dont know")
 
 
 
