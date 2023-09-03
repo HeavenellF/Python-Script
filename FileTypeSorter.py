@@ -16,4 +16,12 @@ if not os.path.exists(dir_path):
     print(f"{dir_path} doesnt exist")
     sys.exit(1)
 
+for subDir in [subDir_Doc, subDir_Img, subDir_Txt]:
+    subDir_name = os.path.join(dir_path, subDir)
+    if not os.path.exists(subDir_name):
+        os.makedirs(subDir_name)
+        print(f"create {subDir} in {dir_path}")
+    else :
+        print(f"{subDir} in {dir_path} already exists")
+
 print("Script Complete!")
