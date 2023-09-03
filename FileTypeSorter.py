@@ -2,6 +2,7 @@ import os
 import shutil
 import sys
 
+# checks if the arguments isnt 2 
 if len(sys.argv) != 2 :
     print("need 1 Argument")
     print("Usage : python FileTypeSorter.py <dir_path>")
@@ -18,6 +19,7 @@ if not os.path.exists(dir_path):
     print(f"{dir_path} doesnt exist")
     sys.exit(1)
 
+# create subDir if doesnt exists
 for subDir in [subDir_Doc, subDir_Img, subDir_Txt]:
     subDir_name = os.path.join(dir_path, subDir)
     if not os.path.exists(subDir_name):
@@ -31,6 +33,7 @@ txt_moved = 0
 doc_moved = 0
 unknown_file = 0
 
+# move all files
 for item in os.listdir(dir_path):
     file = os.path.join(dir_path, item)
     if os.path.isfile(file):
