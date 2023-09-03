@@ -26,6 +26,10 @@ for subDir in [subDir_Doc, subDir_Img, subDir_Txt]:
     else :
         print(f"{subDir} in {dir_path} already exists")
 
+img_moved = 0
+txt_moved = 0
+doc_moved = 0
+unknown_file = 0
 
 for item in os.listdir(dir_path):
     file = os.path.join(dir_path, item)
@@ -33,16 +37,22 @@ for item in os.listdir(dir_path):
         file_extension = os.path.splitext(item)[1].lower()
         if file_extension in imgFormat:
             dir_destination = os.path.join(dir_path, subDir_Img)
-
+            img_moved += 1
         elif file_extension in txtFormat:
             dir_destination = os.path.join(dir_path, subDir_Txt)
-
+            txt_moved += 1
         elif file_extension in docFormat:
             dir_destination = os.path.join(dir_path, subDir_Doc)
-
+            doc_moved += 1
         else:
             dir_destination = None
+            unknown_file += 1
         
         if dir_destination :
             shutil.move(file, dir_destination)
 
+
+print(f"{img_moved} Image moved")
+print(f"{txt_moved} Text moved")
+print(f"{doc_moved} Document moved")
+print(f"{unknown_file} unknown files not moved")
