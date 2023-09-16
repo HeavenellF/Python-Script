@@ -1,11 +1,11 @@
-.username {
+.chat-msg .username {
     color: #e303fc;
 }
 
-.timestamp {
+.chat-msg .timestamp {
     color: #004440;
 }
 
-.server-msg-reconnect {
+.chat-msg .server-msg-reconnect {
     color: #444444;
 }
